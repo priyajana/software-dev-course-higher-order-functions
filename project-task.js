@@ -43,7 +43,13 @@ Step-by-Step:
 2. Use the `filter()` method to apply the callback to the array.
 3. Return the filtered result.
 */
+function filterProducts(productArr,callback)
+{
+  return productArr.filter(callback);
+}
 
+const availableProducts = filterProducts(products,(item)=>item.inStock===true);
+const productByPrice = filterProducts(products,(item)=>item.price>300);
 
 /*
 🔹 Task 2: Transform Product Names
@@ -56,6 +62,7 @@ Step-by-Step:
 3. Store the result in a new variable.
 */
 
+products.map((item)=>item.name = item['name'].toUpperCase());
 
 /*
 🔹 Task 3: Generate Discounted Prices
@@ -69,7 +76,14 @@ Step-by-Step:
 2. Return a new function that takes a product object.
 3. Use this returned function inside a `map()` call to apply discounts to all products.
 */
-
+function applyDiscount(discountPercent)
+{
+  return function calculatePrices(products){
+    products.map((item)=> item.price = item.price - (item.price * (discountPercent /100)));
+   }
+}
+const new_products = applyDiscount(25);
+new_products(products);
 
 /*
 🔹 Task 4: Calculate Total Inventory Value
@@ -81,13 +95,26 @@ Step-by-Step:
 2. Add only the prices of products where `inStock` is true.
 3. Store the total in a new variable.
 */
+let total_value = products.reduce((total, product) => {
+  if(product.inStock){
+   
+    return total + product.price;
+  }
+  else{return total;}
+},0);
 
 
 // ============================================
 // 🧪 Console Test Your Work
 // ============================================
 
-// console.log("Filtered products:", ...);
-// console.log("Uppercased names:", ...);
-// console.log("Discounted products:", ...);
-// console.log("Total value in stock:", ...);
+console.log("Filtered products based on availability: ...");
+console.log(availableProducts);
+console.log("Products with price more than 300...");
+console.log(productByPrice);
+console.log("Uppercased names:, ...");
+console.log(products);
+console.log("Discounted products:,...");
+console.log(products);
+console.log("Total value in stock:, ...");
+console.log(total_value);
