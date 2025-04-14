@@ -62,7 +62,7 @@ Step-by-Step:
 3. Store the result in a new variable.
 */
 
-products.map((item)=>item.name = item['name'].toUpperCase());
+const new_productArr = products.map((item)=>item.name = item['name'].toUpperCase());
 
 /*
 🔹 Task 3: Generate Discounted Prices
@@ -78,12 +78,12 @@ Step-by-Step:
 */
 function applyDiscount(discountPercent)
 {
-  return function calculatePrices(products){
+  return function calculatePrices(product){
     products.map((item)=> item.price = item.price - (item.price * (discountPercent /100)));
    }
 }
-const new_products = applyDiscount(25);
-new_products(products);
+const discountFunction = applyDiscount(50);
+discountFunction(products[1]);
 
 /*
 🔹 Task 4: Calculate Total Inventory Value
@@ -113,8 +113,8 @@ console.log(availableProducts);
 console.log("Products with price more than 300...");
 console.log(productByPrice);
 console.log("Uppercased names:, ...");
-console.log(products);
-console.log("Discounted products:,...");
-console.log(products);
-console.log("Total value in stock:, ...");
+console.log(new_productArr);
+console.log("Discount Function:,...");
+console.log(discountFunction);
+console.log("Total value of products in stock:, ...");
 console.log(total_value);
