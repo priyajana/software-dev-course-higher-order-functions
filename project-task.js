@@ -118,3 +118,25 @@ console.log("Discount Function:,...");
 console.log(discountFunction);
 console.log("Total value of products in stock:, ...");
 console.log(total_value);
+// OUTPUT
+
+/*
+Filtered products based on availability: ...
+[
+  { name: 'LAPTOP', price: 500, inStock: true },
+  { name: 'TABLET', price: 400, inStock: true },
+  { name: 'MONITOR', price: 150, inStock: true }
+]
+Products with price more than 300...
+[
+  { name: 'LAPTOP', price: 500, inStock: true },
+  { name: 'PHONE', price: 250, inStock: false },
+  { name: 'TABLET', price: 400, inStock: true }
+]
+Uppercased names:, ...
+[ 'LAPTOP', 'PHONE', 'TABLET', 'MONITOR', 'KEYBOARD' ]
+Discount Function:,...
+[Function: calculatePrices]
+Total value of products in stock:, ...
+1050
+*/
